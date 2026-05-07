@@ -1,0 +1,39 @@
+{ pkgs, lib, ... }:
+
+{
+  imports = [
+    ../default.nix
+  ];
+
+  hardware.firmware = [
+    (pkgs.callPackage ./tas2783-firmware.nix { })
+  ];
+
+  # WirePlumber config for TAS2783 smart amp speakers.
+  # UCM doesn’t expose a Speakers port for this card, so force pro-audio and
+  # prevent the speaker sink from suspending (prevents desync on idle).
+  # Firmware extraction recipe and original config:
+  # https://gist.github.com/cryptob1/f62aaf8517df2e540f447347f42c7a03
+  services.pipewire.wireplumber.extraConfig."51-strix-halo-audio" = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [
+          { "device.name" = "alsa_card.pci-0000_c4_00.5-platform-amd_sdw"; }
+        ];
+        actions."update-props" = {
+          "device.profile" = "pro-audio";
+        };
+      }
+      {
+        matches = [
+          { "node.name" = "alsa_output.pci-0000_c4_00.5-platform-amd_sdw.pro-output-2"; }
+        ];
+        actions."update-props" = {
+          "session.suspend-timeout-seconds" = 0;
+          "node.description" = "Internal Speakers (TAS2783)";
+          "priority.session" = 2300;
+        };
+      }
+    ];
+  };
+}
