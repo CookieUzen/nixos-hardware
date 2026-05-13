@@ -108,6 +108,7 @@ See code for all available configurations.
 | [Apple Macs with a T2 Chip](apple/t2)                                             | `<nixos-hardware/apple/t2>`                             | `apple-t2`                             |
 | [Aoostar R1 N100](aoostar/r1/n100)                                                | `<nixos-hardware/aoostar/r1/n100>`                      | `aoostar-r1-n100`                      |
 | [Asus Pro WS X570-ACE](asus/pro-ws-x570-ace)                                      | `<nixos-hardware/asus/pro-ws-x570-ace>`                 | `asus-pro-ws-x570-ace`                 |
+| [Asus ProArt PX13 hn7306eac](asus/proart/px13/hn7306eac)                                              | `<nixos-hardware/asus/proart/px13/hn7306eac>`                 | `asus-proart-px13-hn7306eac`                 |
 | [Asus ROG Ally RC71L (2023)](asus/ally/rc71l)                                     | `<nixos-hardware/asus/ally/rc71l>`                      | `asus-ally-rc71l`                      |
 | [Asus ROG Flow X13 GV302X\* (2023)](asus/flow/gv302x/amdgpu)                      | `<nixos-hardware/asus/flow/gv302x/amdgpu>`              | `asus-flow-gv302x-amdgpu`              |
 | [Asus ROG Flow X13 GV302X\* (2023)](asus/flow/gv302x/nvidia)                      | `<nixos-hardware/asus/flow/gv302x/nvidia>`              | `asus-flow-gv302x-nvidia`              |
